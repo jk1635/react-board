@@ -1,39 +1,32 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import { withRouter } from "react-router";
+import styled from "styled-components";
+import { Route } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
 import PostWrite from "./pages/PostWrite";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const App = () => {
+  return (
+    <React.Fragment>
+      <Container>
+        <BrowserRouter>
+          <Route path="/" exact component={Home} />
+          <Route path="/postwrite" exact component={PostWrite} />
+        </BrowserRouter>
+      </Container>
+    </React.Fragment>
+  );
+};
 
-  // componentDidMount() {}
+const Container = styled.div`
+  width: 900px;
+  height: auto;
+  margin: auto;
+  box-sizing: border-box;
+  display: block;
+  background-color: #fff;
+  border: 1px solid #ddd;
+`;
 
-  render() {
-    return (
-      <div className="App">
-        <Route path="/" exact component={Home} />
-        <Route path="/postwrite" exact component={PostWrite} />
-        {/* <button
-          onClick={() => {
-            this.props.history.push("/postwrite");
-          }}
-        >
-          글쓰기
-        </button> */}
-        {/* <button
-          onClick={() => {
-            this.props.history.push("/");
-          }}
-        >
-          뒤로가기
-        </button> */}
-      </div>
-    );
-  }
-}
-export default withRouter(App);
+export default App;
