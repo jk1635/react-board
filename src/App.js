@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { withRouter } from "react-router";
 
 import Home from "./pages/Home";
@@ -11,25 +11,27 @@ class App extends React.Component {
     this.state = {};
   }
 
+  // componentDidMount() {}
+
   render() {
     return (
       <div className="App">
         <Route path="/" exact component={Home} />
         <Route path="/postwrite" exact component={PostWrite} />
-        <button
+        {/* <button
           onClick={() => {
             this.props.history.push("/postwrite");
           }}
         >
           글쓰기
-        </button>
-        <button
+        </button> */}
+        {/* <button
           onClick={() => {
             this.props.history.push("/");
           }}
         >
           뒤로가기
-        </button>
+        </button> */}
       </div>
     );
   }
